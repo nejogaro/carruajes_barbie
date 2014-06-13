@@ -30,8 +30,7 @@ class Alquileres:
         return self.completada
 
 
-    def totalIngresosPerioFechas(self):
-
+    def totalIngresosPerioFechas(self, fecha_al, fecha_re):
         fecha_al = datetime.strptime(self.fechaalquiler, "%m/%d/%Y")
         fecha_re = datetime.strptime(self.fecharetorno, "%m/%d/%Y")
         total_dias = (abs((fecha_al-fecha_re).days))

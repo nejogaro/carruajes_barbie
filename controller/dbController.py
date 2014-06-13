@@ -17,23 +17,31 @@ class DbController:
             f.write(line + "\n")
             print("Coche añadido!")
 
-
     def pathToDbTransacciones(self, line):
         with open(self.pathToDbCoches, "a") as f:
             f.write(line + "\n")
-            print("Coche añadido!")
+            print("Transaccion añadida!")
 
 
-    def getAllCoches(self):
+    def getAllCochesDisponibles(self):
         cochesList = list()
         with open(self.pathToDbCoches, "r") as f:
             for line in f:
                 #cochesList.append(line)
                 cochesList = line.split(';')
                 if re.match(cochesList[4], 'SI'):
-                    print("Matricula: ", cochesList[0], "Marca: ", cochesList[1])
+                    print("Matricula: ", cochesList[0], "Marca: ", cochesList[1], "Precio: ", cochesList[2], "Precio: ", cochesList[3])
         #return cochesList
 
+    def getAllCochesAlquilados(self):
+        cochesList = list()
+        with open(self.pathToDbCoches, "r") as f:
+            for line in f:
+                #cochesList.append(line)
+                cochesList = line.split(';')
+                if re.match(cochesList[4], 'NO'):
+                    print("Matricula: ", cochesList[0], "Marca: ", cochesList[1], "Precio: ", cochesList[2], "Precio: ", cochesList[3])
+        #return cochesList
 
     def getAllCochesAlquilados(self):
         cochesListAlquilados = list()

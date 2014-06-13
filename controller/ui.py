@@ -24,11 +24,10 @@ while(True):
         cocheController.newAlquileresCoches()
 
     if(opcion == 2):
-        #cocheController.listCoches()
-        dbController.getAllCoches()
+        dbController.getAllCochesDisponibles()
 
     if(opcion == 3):
-        cocheController.listCochesAlquilados()
+        dbController.getAllCochesAlquilados()
 
     if(opcion == 4):
         cocheController.newCoche()
