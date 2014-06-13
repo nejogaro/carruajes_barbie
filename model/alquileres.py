@@ -2,7 +2,7 @@ __author__ = 'jedi'
 
 import sys
 sys.path.insert(0, '../controller')
-from dbController import *
+from controller.dbController import *
 from datetime import datetime
 
 

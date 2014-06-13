@@ -1,26 +1,19 @@
-
 __author__ = 'jedi'
 
 import sys
 import os
+from controller.dbController import *
 
 sys.path.insert(0, '../model')
-from coche import *
-from dbController import *
+from model.coche import *
 
-import datetime
 
 class CocheController:
 
-    def newCoche(self):
-        matricula = input("Matricula: ")
-        marca = input("MArca: ")
-        modelo = input("Modelo: ")
-        preciodia = input("Preciodia: ")
-        disponible = input("Disponible: ")
-        cocheToInsert = coche(matricula, marca, modelo, preciodia, disponible)
-        cocheToInsert.insertToDb();
 
+
+    def newAlquileresCoches(self):
+        print("HOLA")
 
     def listCochesDisponibles(self):
         print("Mostrando la lista de Coches Disponibles...")
@@ -30,15 +23,14 @@ class CocheController:
         for cocheString in cocheList:
             matricula, marca, modelo, preciodia, disponible = cocheString.split(";")
             coche = coche(matricula, marca, modelo, preciodia, disponible)
-            if coche.getDisponible() == 'SI':
-                    cocheToList = coche
-                    cocheList.append(cocheToList)
-                    print(cocheToList)
-            else:
-                print("No hay coches disponibles")
+            #if coche.getDisponible() == 'SI':
+            cocheToList = coche
+            print(cocheToList)
+            #else:
+            #    print("No hay coches disponibles")
 
     def listCochesAlquilados(self):
-        print("Mostrando la lista de Coches Disponibles...")
+        print("Mostrando la lista de Coches Alquilados...")
         dbController = DbController()
         cocheList = dbController.getAllCoches()
         #cocheOrderedList = list()
@@ -53,5 +45,19 @@ class CocheController:
             else:
                 print("No hay coches disponibles")
 
+
+    def newCoche(self):
+        matricula = input("Matricula: ")
+        marca = input("MArca: ")
+        modelo = input("Modelo: ")
+        preciodia = input("Preciodia: ")
+        disponible = input("Disponible: ")
+        cocheToInsert = Coche(matricula, marca, modelo, preciodia, disponible)
+        cocheToInsert.insertToDb();
+
+
+    def ingresosTotales(self):
+        matricula = input("Matricula: ")
+        marca = input("MArca: ")
 #test = CocheController()
 #test.listCochesDisponibles()

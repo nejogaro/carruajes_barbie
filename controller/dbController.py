@@ -1,10 +1,8 @@
 __author__ = 'jedi'
-
+from controller.cocheController import *
 import sys
-
 sys.path.insert(0, '../model')
-from coche import *
-from cocheController import *
+
 
 class DbController:
     def __init__(self, pathToDbCoches="../database/coches.txt", pathToDbClientes="../database/coches.txt", pathToDbTransacciones="../database/coches.txt"):
